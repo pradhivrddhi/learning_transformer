@@ -1,0 +1,1 @@
+from .fetch_from_pretrained import FetchFromPretrained
