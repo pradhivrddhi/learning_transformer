@@ -12,7 +12,7 @@ class AttentionHead(torch.nn.Module):
         self.q = torch.nn.Linear(embed_dim, head_dim)
         self.k = torch.nn.Linear(embed_dim, head_dim)
         self.v = torch.nn.Linear(embed_dim, head_dim)
-        self.register_buffer('tril', torch.tril(torch.ones(embed_dim*8, embed_dim*8)))
+        self.register_buffer('tril', torch.tril(torch.ones(config.max_position_embeddings, config.max_position_embeddings)))
 
     def forward(self, hidden_state):
         attn_outputs = scaled_dot_product_attention(
